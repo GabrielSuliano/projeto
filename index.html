@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Uma surpresa de Dia dos Namorados feita para a Julinha."
+    />
+    <title>Para Julinha</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="universeCanvas" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Voltar ao inicio">
+        <span class="brand-mark">J</span>
+        <span>Para Julinha</span>
+      </a>
+      <nav aria-label="Secoes da surpresa">
+        <a href="#cofre">Cofre</a>
+        <a href="#capsula">Capsula</a>
+        <a href="#constelacao">Constelacao</a>
+        <a href="#galeria">Memorias</a>
+        <a href="#final">Final</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section" id="inicio">
+        <div class="hero-copy">
+          <p class="eyebrow">12 de junho</p>
+          <h1>
+            <span>Julinha, eu escondi</span>
+            <span>um universo inteiro</span>
+            <span>aqui.</span>
+          </h1>
+          <p class="lead">
+            Nao queria te mandar so uma mensagem. Queria criar um lugar
+            pequeno, bonito e so nosso, onde cada clique guarda um pedaco do
+            que voce significa pra mim.
+          </p>
+          <div class="hero-actions">
+            <button class="button button-primary" id="openPortal" type="button">
+              Abrir o portal
+            </button>
+            <a class="button button-ghost" href="#cofre">Ir para o cofre</a>
+          </div>
+        </div>
+
+        <aside class="signal-panel tilt" aria-label="Contagem regressiva">
+          <p class="panel-kicker">Dia dos Namorados</p>
+          <figure class="hero-photo">
+            <img src="assets/foto-3.jpg" alt="Julia e Gabriel sorrindo juntos" />
+            <figcaption>nosso jeito favorito</figcaption>
+          </figure>
+          <div class="countdown" id="countdown">
+            <span><strong>--</strong><small>dias</small></span>
+            <span><strong>--</strong><small>horas</small></span>
+            <span><strong>--</strong><small>min</small></span>
+            <span><strong>--</strong><small>seg</small></span>
+          </div>
+          <p class="panel-note" id="countdownNote">
+            A contagem segue o horario de Brasilia. O cofre abre so por senha.
+          </p>
+        </aside>
+      </section>
+
+      <section class="vault section" id="cofre">
+        <div class="section-heading">
+          <p class="eyebrow">entrada secreta</p>
+          <h2>O cofre da Julinha</h2>
+          <p>
+            Tem coisa que nao combina com pressa. Entao eu tranquei a carta com
+            uma frase que eu so entrego quando chegar o momento.
+          </p>
+        </div>
+
+        <div class="vault-grid">
+          <form class="lockbox tilt" id="lockForm">
+            <label for="passcode">Senha</label>
+            <div class="password-row">
+              <input
+                id="passcode"
+                name="passcode"
+                type="text"
+                autocomplete="off"
+                placeholder="frase secreta"
+                aria-describedby="lockStatus"
+              />
+              <button class="icon-button" type="submit" aria-label="Desbloquear">
+                <span aria-hidden="true">-></span>
+              </button>
+            </div>
+            <p class="lock-status" id="lockStatus" role="status">
+              O cofre nao abre por horario. So pela frase certa.
+            </p>
+          </form>
+
+          <article class="letter tilt is-locked" id="letterCard">
+            <p class="panel-kicker">carta aberta</p>
+            <h3>Para a Julia que eu chamo de Julinha</h3>
+            <div class="letter-text" id="letterText">
+              <p>Desbloqueia o cofre primeiro.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="capsule section is-locked" id="capsula">
+        <div class="capsule-shell">
+          <div class="capsule-copy">
+            <p class="eyebrow">capsula secreta</p>
+            <h2>Quando o cofre abre, as memorias acendem.</h2>
+            <p>
+              Eu juntei dez pedacinhos nossos para ela atravessar como se fosse
+              um filme curto, daqueles que a gente assiste sorrindo sem perceber.
+            </p>
+            <div class="capsule-actions">
+              <button class="button button-primary" id="startCinema" type="button" disabled>
+                Iniciar capsula
+              </button>
+              <p class="capsule-status" id="capsuleStatus">
+                A capsula libera depois da frase secreta.
+              </p>
+            </div>
+          </div>
+
+          <article class="memory-stage tilt" aria-live="polite">
+            <img id="memoryImage" src="assets/foto-1.jpg" alt="Julia e Gabriel juntos" />
+            <div class="memory-caption">
+              <p id="memoryLabel">capitulo 01</p>
+              <h3 id="memoryTitle">Nosso universo em azul</h3>
+              <p id="memoryText">
+                Uma foto com cara de segredo bonito, como se o mundo tivesse
+                desligado um pouco so para deixar a gente existir.
+              </p>
+            </div>
+            <div class="memory-controls">
+              <button class="icon-button" id="prevMemory" type="button" aria-label="Memoria anterior">
+                <span aria-hidden="true">&lt;</span>
+              </button>
+              <div class="memory-dots" id="memoryDots" aria-hidden="true"></div>
+              <button class="icon-button" id="nextMemory" type="button" aria-label="Proxima memoria">
+                <span aria-hidden="true">&gt;</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="constellation section" id="constelacao">
+        <div class="section-heading">
+          <p class="eyebrow">constelacao</p>
+          <h2>12 motivos que brilham em voce</h2>
+          <p>
+            Eu poderia escrever uma lista enorme. Comecei com doze, porque hoje
+            o numero tem um peso bonito.
+          </p>
+        </div>
+
+        <div class="reason-grid" id="reasonGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="film section" id="filme">
+        <div class="section-heading">
+          <p class="eyebrow">nosso filme</p>
+          <h2>Cenas que eu guardaria pra sempre</h2>
+          <p>
+            Algumas historias nao precisam de roteiro perfeito. So precisam de
+            alguem que faca a gente querer assistir ate o fim.
+          </p>
+        </div>
+
+        <div class="scene-track" id="sceneTrack"></div>
+      </section>
+
+      <section class="gallery section" id="galeria">
+        <div class="section-heading">
+          <p class="eyebrow">memorias</p>
+          <h2>Dez janelas para nos dois</h2>
+          <p>
+            Agora nao sao placeholders. Sao pedacos reais: bobeira, carinho,
+            sorriso, olho no olho e esse jeito nosso de caber no mesmo quadro.
+          </p>
+        </div>
+
+        <div class="photo-grid" id="photoGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="promises section" id="promessas">
+        <div class="section-heading">
+          <p class="eyebrow">promessas pequenas</p>
+          <h2>Coisas que eu quero continuar escolhendo</h2>
+        </div>
+
+        <div class="promise-grid">
+          <button class="promise-card tilt" type="button">
+            <span>Hoje</span>
+            <strong>te escolher com calma</strong>
+          </button>
+          <button class="promise-card tilt" type="button">
+            <span>Nos dias leves</span>
+            <strong>rir contigo ate perder a pose</strong>
+          </button>
+          <button class="promise-card tilt" type="button">
+            <span>Nos dias dificeis</span>
+            <strong>ficar perto, de verdade</strong>
+          </button>
+        </div>
+      </section>
+
+      <section class="finale section" id="final">
+        <div class="finale-copy">
+          <p class="eyebrow">ultimo clique</p>
+          <h2>Quando voce apertar, o ceu inteiro acende pra voce.</h2>
+          <p>
+            Feliz Dia dos Namorados, Julia. Feliz nosso jeito de ser dois.
+          </p>
+          <button class="button button-primary" id="grandFinal" type="button">
+            Abrir o grande final
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <div class="cinema-overlay" id="cinemaOverlay" aria-hidden="true">
+      <div class="cinema-frame" role="dialog" aria-modal="true" aria-label="Capsula de memorias">
+        <button class="cinema-close" id="closeCinema" type="button" aria-label="Fechar capsula">
+          <span aria-hidden="true">x</span>
+        </button>
+        <img id="cinemaImage" src="assets/foto-1.jpg" alt="Julia e Gabriel juntos" />
+        <div class="cinema-copy">
+          <p id="cinemaCounter">01 / 10</p>
+          <h2 id="cinemaTitle">Nosso universo em azul</h2>
+          <p id="cinemaText">
+            Uma foto com cara de segredo bonito, como se o mundo tivesse
+            desligado um pouco so para deixar a gente existir.
+          </p>
+        </div>
+        <div class="cinema-progress" aria-hidden="true">
+          <span id="cinemaProgress"></span>
+        </div>
+        <div class="cinema-actions">
+          <button class="icon-button" id="cinemaPrev" type="button" aria-label="Foto anterior">
+            <span aria-hidden="true">&lt;</span>
+          </button>
+          <button class="icon-button" id="cinemaNext" type="button" aria-label="Proxima foto">
+            <span aria-hidden="true">&gt;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grand-finale-overlay" id="grandFinaleOverlay" aria-hidden="true">
+      <div class="final-sparks" id="finalSparks" aria-hidden="true"></div>
+      <section class="grand-finale-stage" role="dialog" aria-modal="true" aria-label="Final para Julinha">
+        <button class="grand-finale-close" id="closeGrandFinale" type="button" aria-label="Fechar final">
+          <span aria-hidden="true">x</span>
+        </button>
+
+        <div class="final-photo-orbit" aria-hidden="true">
+          <img class="final-photo-main" src="assets/foto-9.jpg" alt="" />
+          <img class="final-photo-card card-one" src="assets/foto-3.jpg" alt="" />
+          <img class="final-photo-card card-two" src="assets/foto-1.jpg" alt="" />
+          <img class="final-photo-card card-three" src="assets/foto-7.jpg" alt="" />
+          <img class="final-photo-card card-four" src="assets/foto-10.jpg" alt="" />
+        </div>
+
+        <div class="final-declaration">
+          <p class="eyebrow">ultimo segredo</p>
+          <h2>Julinha, meu universo escolheu voce.</h2>
+          <p>
+            No fim de tudo, era isso que eu queria te mostrar: nao foi so uma
+            pagina. Foi meu jeito de guardar a gente num lugar bonito e dizer,
+            de um jeito bem meu, que voce e minha parte favorita.
+          </p>
+          <div class="final-vow">
+            <span>12 de junho</span>
+            <strong>eu escolheria voce de novo.</strong>
+          </div>
+          <div class="final-actions">
+            <button class="button button-primary" id="finalReplay" type="button">
+              Rever nosso filme
+            </button>
+            <button class="button button-ghost" id="finalSky" type="button">
+              Escrever no ceu
+            </button>
+          </div>
+        </div>
+
+        <div class="sky-writing" id="skyWriting" aria-hidden="true">
+          <span>JULINHA</span>
+          <small>escrito no ceu que eu inventei pra voce</small>
+        </div>
+      </section>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
