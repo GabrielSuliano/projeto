@@ -763,12 +763,14 @@ const universe = (() => {
     const offContext = offscreen.getContext("2d");
     offscreen.width = width;
     offscreen.height = height;
-    const fontSize = width < 720 ? 68 : Math.min(154, Math.floor(width / 7));
-    offContext.fillStyle = "#ffffff";
-    offContext.textAlign = "center";
-    offContext.textBaseline = "middle";
-    offContext.font = `900 ${fontSize}px Georgia, serif`;
-    offContext.fillText(text, width / 2, height / 2);
+    const fontSize = width < 720 ? 56 : Math.min(136, Math.floor(width / 8));
+    const textY = width < 720 ? height * 0.72 : height * 0.66;
+
+offContext.fillStyle = "#ffffff";
+offContext.textAlign = "center";
+offContext.textBaseline = "middle";
+offContext.font = `900 ${fontSize}px Georgia, serif`;
+offContext.fillText(text, width / 2, textY);
 
     const imageData = offContext.getImageData(0, 0, width, height).data;
     const points = [];
