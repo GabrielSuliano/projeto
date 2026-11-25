@@ -53,3 +53,13 @@ Importe o repositorio na Vercel como projeto estatico. Nao e necessario build co
 ## Status
 
 Projeto front-end completo, focado em uma experiencia visual e emocional personalizada.
+
+## Arquitetura e privacidade
+
+Experiência pessoal: `index.html` fornece cenas, `styles.css` apresentação e `script.js` controla canvas, galeria, contagem e desbloqueio. O cofre é interação de cliente: a lógica/valores são entregues ao navegador e **não protegem conteúdo confidencial**.
+
+Não há API, autenticação no servidor, banco, dependências npm, `.env` ou build. Fotos/textos pessoais exigem autorização dos titulares para redistribuição. O endereço cadastrado respondeu HTTP 200 em 25/11/2026; isso não comprova interações.
+
+## Testes e evolução
+
+Não há suíte automatizada. Recomenda-se testar datas, teclado, movimento reduzido e celular. Demonstração visual pessoal, sem prioridade para fixação técnica. Não há licença versionada.
